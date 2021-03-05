@@ -1,0 +1,11 @@
+<% 
+FilterStatusHelper = (type, statusFilter, search) => { %>
+    <% statusFilter.forEach( (item) => { 
+        let link = systemConfig.prefixAdmin +'/'+ type +'/status/' + item.name;
+        if (search) link += '?search=' + search;
+    %>
+        <a class="btn m-b-sm btn-<%= item.class%> btn-sm" href="/<%= link%> "> 
+            <%= item.name.toUpperCase() +" ("+ item.count +")"%> 
+        </a>
+<% })} %> 
+

@@ -1,0 +1,140 @@
+<% 
+    const type = 'items'; 
+    const linkPrefix =systemConfig.prefixAdmin + `/${type}/`;
+%>
+
+<div style=" position: relative; margin-top: -1px">
+    <!-- Tittle -->
+    <div style=" color: white; display: flex ; align-items: center; justify-content: center; padding: 10px;">
+        <h1>
+            <%= title %>
+        </h1>
+    </div>
+
+    <%- locals.flash%>
+ 
+    <!-- Search -->
+    <div class="col-lg-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                Search & Filter
+                <a href="<%= linkPrefix %>status/all">
+                    <span id="icon-reload" class="glyphicon glyphicon-refresh"></span>
+                </a>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="status-list col-sm-6 pl0">
+                        <!-- Filter Status -->
+                        <% include ./../../helpers/filter-status %>
+                            <%= FilterStatusHelper(type,statusFilter, search) %>
+                    </div>
+                    <div class="col-sm-6">
+                        <form action="<%= linkPrefix %>status/<%= currentStatus%>" method="GET">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="search" placeholder="Search for..."
+                                    value="<%= search%>">
+                                <input type="hidden" value="all">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info" type="submit">Search</button>
+                                </span>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success" type="button">
+                                        <a href="<%= linkPrefix %>/status/<%= currentStatus%>">Clear</a>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Table -->
+    <div class="col-lg-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                List Items
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <form role="form" class="form-inline zt-form" id="zt-form" action="" method="post">
+
+                    <% include ./../../helpers/action %>
+                        <%- actionHelper(type) %>
+
+                            <div class="table-responsive">
+                                <div class="table-responsive">
+                                    <div class="panel-heading">
+                                        List Items
+                                    </div>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <input type="checkbox" class="cbAll" />
+                                                </th>
+                                                <th>STT</th>
+                                                <th>Name</th>
+                                                <th>Status</th>
+                                                <th>Ordering</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% items.forEach( (item, index)=> { %>
+                                                <tr>
+                                                    <td> <input type="checkbox" name="cid" value="<%= item.id %>" />
+                                                    </td>
+                                                    <td>
+                                                        <%= index+1 %>
+                                                    </td>
+                                                    <td>
+                                                        <%= item.name %>
+                                                    </td>
+                                                    <td>
+                                                        <% include ./../../helpers/status %>
+                                                            <%- statusHelper(type, item.status, item.id) %>
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" value="<%= item.ordering%>"
+                                                            class="text-center ordering" name="ordering">
+                                                    </td>
+                                                    <td>
+                                                        <a href="<%= linkPrefix %>add/<%= item.id%>" type="button" class="btn btn-warning btn-sm"> Edit
+                                                        </a>
+                                                        <a href="<%= linkPrefix %>delete/<%= item.id%>"
+                                                            type="button" class="btn btn-danger btn-sm btn-delete">
+                                                            Delete</a>
+                                                    </td>
+                                                </tr>
+                                                <% }) %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-lg-12">
+        <% include ./../../helpers/pagination %>
+            <%- paginationHelper(pagination, type,currentStatus, search)%>
+    </div>
+
+
+    <!-- <div style="background-color: white; color: black;   position: absolute; bottom: 0; left: 0;">
+        <h3> <%= JSON.stringify(items) %> </h3>
+    </div> -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/sb-admin.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/custom.js"></script>
+</div>

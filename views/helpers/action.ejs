@@ -1,0 +1,35 @@
+<% 
+actionHelper = (type)=> {
+    let action = [
+        {value:"" , name: "Bulk Action"},
+        {value:"change-status/active" , name: "Active"},
+        {value:"change-status/inactive" , name: "InActive"},
+        {value:"change-ordering/" , name: "Change Ordering"},
+        {value:"delete/" , name: "Delete"},
+    ];
+
+    let xhtmlAction = '';
+
+    action.forEach((action) => {
+        let link = systemConfig.prefixAdmin +'/'+ type +'/'+ action.value;
+        xhtmlAction += `<option value="${link}">${action.name}</option>`;
+    });
+
+    return ` 
+            <div class="zcontrols">
+                <select name="action" class="form-control slbAction">
+                    ${xhtmlAction}
+                </select>
+                <button class="btn btn-info btnAction" type="button" id="btn-action" value="btnAction"
+                    disabled>Apply</button>
+                <div class="pull-right">
+                    <a href="${systemConfig.prefixAdmin}/${type}/add/"class="btn btn-warning btn-addNew">Add New
+                    </a>
+                </div>
+            </div>  `;
+}
+%>
+
+
+
+            

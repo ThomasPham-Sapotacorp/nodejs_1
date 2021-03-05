@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ./elements/header %>
+</head>
+
+<body id="home" style="position: relative; min-height: 100%;">
+    <div class="wrapper" style="padding-bottom: 300px;">
+        <% include ./elements/navbar %>
+        <div class="clearfix"></div>
+        
+        <%- body %>
+
+        <div class="clearfix"></div>
+        <% include ./elements/footer %>      
+    </div>
+    <% include ./elements/script %>
+</body>
+
+</html>

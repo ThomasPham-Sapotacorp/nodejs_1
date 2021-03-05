@@ -1,0 +1,14 @@
+<% if (errors) { %>
+<div class="row">
+        <div class="col-lg-6">
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                    <% errors.forEach((errors) => { %>
+                        <li><%= errors.param %>: <%= errors.msg%></li>
+                    <% })%>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+<% } %>
