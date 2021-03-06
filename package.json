@@ -15,31 +15,12 @@
     "express-flash-notification": "^0.5.0",
     "express-session": "^1.17.1",
     "express-validator": "^6.10.0",
-    "gh-pages": "^3.1.0",
     "http-errors": "~1.6.3",
     "mongodb": "^3.6.4",
     "mongoose": "^5.11.18",
     "morgan": "~1.9.1",
-    "npm-git-install": "^0.3.0",
     "session": "^0.1.0",
     "validator": "^13.5.2",
     "validatorjs": "^3.22.1"
-  },
-  "description": "",
-  "main": "app.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tienthanh5406/nodejs_1.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tienthanh5406/nodejs_1/issues"
-  },
-  "homepage": "https://github.com/tienthanh5406/nodejs_1#readme",
-  "gitDependencies": {}
-  {
-
   }
 }
