@@ -22,5 +22,20 @@
     "session": "^0.1.0",
     "validator": "^13.5.2",
     "validatorjs": "^3.22.1"
-  }
+  },
+  "description": "",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tienthanh5406/nodejs_1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tienthanh5406/nodejs_1/issues"
+  },
+  "homepage": "https://github.com/tienthanh5406/nodejs_1#readme",
+  "gitDependencies": {}
 }
+
